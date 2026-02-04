@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고1반_첫단추_단어연습</title>
+    <style>
+        :root {
+            --primary: #004d40; 
+            --primary-hover: #00332d; 
+            --text-light: #ffffff;
+            --text-sub: #546e7a;
+            --bg-body: #e0f2f1; 
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: var(--bg-body);
+            color: #263238;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 77, 64, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* 실감나는 사과 SVG 스타일 */
+        .realistic-apple {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+        }
+
+        .header p {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .folder-card {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border-radius: 14px;
+            padding: 20px 10px;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 75px;
+            box-shadow: 0 4px 6px rgba(0, 77, 64, 0.15);
+        }
+
+        .folder-card:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 15px rgba(0, 77, 64, 0.3);
+        }
+
+        .folder-name {
+            font-weight: bold;
+            font-size: 1.1rem; /* 글자 크기를 살짝 키웠습니다 */
+            letter-spacing: -0.5px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #cfd8dc;
+            color: #90a4ae;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .realistic-apple {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>
+            <!-- 실감나는 고화질 사과 SVG -->
+            <svg class="realistic-apple" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="appleGrad" cx="35%" cy="35%" r="70%">
+                        <stop offset="0%" style="stop-color:#ff5f6d" />
+                        <stop offset="60%" style="stop-color:#d31027" />
+                        <stop offset="100%" style="stop-color:#8b0000" />
+                    </radialGradient>
+                    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#a8e063" />
+                        <stop offset="100%" style="stop-color:#56ab2f" />
+                    </linearGradient>
+                    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:white; stop-opacity:0.6" />
+                        <stop offset="100%" style="stop-color:white; stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <path d="M50 90 C30 90 10 75 10 45 C10 20 35 15 50 25 C65 15 90 20 90 45 C90 75 70 90 50 90 Z" fill="url(#appleGrad)" />
+                <path d="M50 25 Q52 10 60 5" fill="none" stroke="#5d4037" stroke-width="4" stroke-linecap="round" />
+                <path d="M52 22 C60 10 75 15 80 5 C75 25 60 25 52 22" fill="url(#leafGrad)" />
+                <ellipse cx="35" cy="35" rx="12" ry="8" fill="url(#gloss)" transform="rotate(-20, 35, 35)" />
+            </svg>
+            고1반_첫단추_단어연습
+        </h1>
+        <p>
+            고등 영어의 시작, 첫단추 단어 훈련입니다!!<br>
+            기초를 탄탄히 다져야 흔들리지 않습니다. 오늘도 화이팅!
+        </p>
+    </div>
+
+    <div class="grid-container" id="folderGrid">
+        <!-- JS를 통해 12개의 회차 링크를 생성합니다 -->
+    </div>
+
+    <footer>
+        &copy; 2024 첫단추 단어 문제풀이 시스템. 모든 권리 보유.
+    </footer>
+</div>
+
+<script>
+    const grid = document.getElementById('folderGrid');
+    
+    // 01회부터 12회까지 생성 ("연습" 단어 제거)
+    for (let i = 1; i <= 12; i++) {
+        const num = String(i).padStart(2, '0');
+        const folderName = `첫단추_${num}회`;
+        
+        const card = document.createElement('a');
+        card.href = `${folderName}/index.html`;
+        card.className = `folder-card`;
+        
+        card.innerHTML = `
+            <span class="folder-name">${num}회</span>
+        `;
+        grid.appendChild(card);
+    }
+</script>
+
+</body>
+</html>
