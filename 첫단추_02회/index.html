@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫단추_02회 단어연습</title>
+    <style>
+        :root {
+            /* 고1 첫단추 대문과 동일한 진한 초록색 테마 */
+            --primary: #004d40; 
+            --primary-hover: #00332d; 
+            --text-light: #ffffff;
+            --text-sub: #546e7a;
+            --bg-body: #e0f2f1; /* 연한 에메랄드 배경 */
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: var(--bg-body);
+            color: #263238;
+            margin: 0;
+            padding: 20px;
+            display: flex; 
+            justify-content: center; 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 77, 64, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: var(--primary); 
+            margin-bottom: 15px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 15px; /* 사과 아이콘과의 간격 */
+        }
+
+        /* 실감나는 사과 SVG 스타일 (크기 조정) */
+        .realistic-apple {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+        }
+
+        .header p {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* 검증된 2열 그리드 레이아웃 (박스형 버튼) */
+        .grid-container {
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            padding: 10px;
+        }
+
+        .quiz-card {
+            background-color: var(--primary); 
+            color: var(--text-light); 
+            border-radius: 14px; 
+            padding: 20px 10px; 
+            text-decoration: none; 
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 65px;
+            font-weight: bold; 
+            font-size: 1.05rem;
+            box-shadow: 0 4px 6px rgba(0, 77, 64, 0.15);
+        }
+
+        .quiz-card:hover {
+            background-color: var(--primary-hover); 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 15px rgba(0, 77, 64, 0.3);
+        }
+
+        /* 하단 내비게이션 */
+        .nav-footer {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid #cfd8dc;
+        }
+
+        .back-link {
+            display: inline-block; 
+            margin-top: 10px;
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #90a4ae;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 500px) { 
+            .grid-container { grid-template-columns: 1fr; } 
+            .header h1 { font-size: 1.7rem; }
+            .realistic-apple { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>
+            <!-- 실감나는 고화질 사과 SVG (어제 만든 그 아이콘) -->
+            <svg class="realistic-apple" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="appleGrad" cx="35%" cy="35%" r="70%">
+                        <stop offset="0%" style="stop-color:#ff5f6d" />
+                        <stop offset="60%" style="stop-color:#d31027" />
+                        <stop offset="100%" style="stop-color:#8b0000" />
+                    </radialGradient>
+                    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#a8e063" />
+                        <stop offset="100%" style="stop-color:#56ab2f" />
+                    </linearGradient>
+                    <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:white; stop-opacity:0.6" />
+                        <stop offset="100%" style="stop-color:white; stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <path d="M50 90 C30 90 10 75 10 45 C10 20 35 15 50 25 C65 15 90 20 90 45 C90 75 70 90 50 90 Z" fill="url(#appleGrad)" />
+                <path d="M50 25 Q52 10 60 5" fill="none" stroke="#5d4037" stroke-width="4" stroke-linecap="round" />
+                <path d="M52 22 C60 10 75 15 80 5 C75 25 60 25 52 22" fill="url(#leafGrad)" />
+                <ellipse cx="35" cy="35" rx="12" ry="8" fill="url(#gloss)" transform="rotate(-20, 35, 35)" />
+            </svg>
+            첫단추_02회
+        </h1>
+        <p>
+            고등영어의 시작, 첫단추 단어훈련입니다!!<br>
+            준비된 문항을 선택하여 학습을 시작하세요.
+        </p>
+    </div>
+
+    <div class="grid-container">
+        <a href="빈칸_01.html" class="quiz-card">빈칸_01</a>
+        <a href="빈칸_02.html" class="quiz-card">빈칸_02</a>
+        <a href="빈칸_03.html" class="quiz-card">빈칸_03</a>
+        <a href="빈칸_04.html" class="quiz-card">빈칸_04</a>
+        <a href="빈칸_05.html" class="quiz-card">빈칸_05</a>
+        <a href="문맥단어.html" class="quiz-card">문맥단어</a>
+        <a href="요약완성.html" class="quiz-card">요약완성</a>
+        <a href="장문독해.html" class="quiz-card">장문독해</a>
+        <a href="밑줄의미.html" class="quiz-card">밑줄의미</a>
+        <a href="주제찾기.html" class="quiz-card">주제찾기</a>
+        <a href="제목찾기.html" class="quiz-card">제목찾기</a>
+        <a href="문장삽입.html" class="quiz-card">문장삽입</a>
+    </div>
+
+    <div class="nav-footer">
+        <a href="../" class="back-link">← 전체 회차 목록으로 돌아가기</a>
+    </div>
+
+    <footer>
+        &copy; 2024 첫단추 단어 문제풀이 시스템. 모든 권리 보유.
+    </footer>
+</div>
+
+</body>
+</html>
